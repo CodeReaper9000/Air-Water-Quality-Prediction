@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Quality Prediction System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: url('/static/background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center; /* Center text alignment */
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* Center children elements horizontally */
+            justify-content: center;  /* Center children elements vertically */
+            height: 100%;
+        }
+        .header {
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 4.5em;
+            margin: 0;
+            color: #000000a8;
+        }
+        .paragraph {
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #2b2e63;
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+        }
+        .button {
+            background: rgba(255, 255, 255, 0.7);  /* Transparent white */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #073375;
+            font-weight: bold;
+            font-size: 1.2em;  /* Make the buttons larger */
+            transition: background-color 0.3s ease;  /* Smooth transition */
+        }
+        .button:hover {
+            background: rgba(255, 255, 255, 1);  /* Fully white on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Environmental Quality Prediction System</h1>
+            <p class="paragraph">Our system provides accurate predictions for environmental quality, helping you make informed decisions to protect our planet and yourself.</p>
+        </div>
+        <div class="buttons">
+            <a href="/air_quality_prediction" class="button">Air Quality Prediction</a>
+            <a href="/water_quality_prediction" class="button">Water Quality Prediction</a>
+        </div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WQI Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/static/water.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border: 1px solid #4CAF50;
+            color: #333;
+            text-align: center;
+        }
+        .error {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WQI Prediction Form</h1>
+        <form method="POST" action="/predict_wqi">
+            <label for="temperature">Temperature(°C):</label>
+            <input type="text" id="temperature" name="temperature" required><br>
+            <label for="ph">pH:</label>
+            <input type="text" id="ph" name="ph" required><br>
+            <label for="do">DO(mg/L):</label>
+            <input type="text" id="do" name="do" required><br>
+            <label for="conductivity">Conductivity(µS/cm):</label>
+            <input type="text" id="conductivity" name="conductivity" required><br>
+            <label for="nitrates">Nitrates(mg/L):</label>
+            <input type="text" id="nitrates" name="nitrates" required><br>
+            <label for="bod">BOD(mg/L):</label>
+            <input type="text" id="bod" name="bod" required><br>
+            <label for="total_coliform">Total Coliform(MPN/100 mL):</label>
+            <input type="text" id="total_coliform" name="total_coliform" required><br><br>
+            <input type="submit" value="Predict WQI">
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h3>Predicted WQI: {{ prediction }}</h3>
+            <p>Category: {{ category }}</p>
+            <p>Description: {{ description }}</p>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="error">
+            <h3>Error: {{ error }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
